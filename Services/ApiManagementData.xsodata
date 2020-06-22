@@ -1,0 +1,35 @@
+service { 
+
+	"API_MANAGEMENT"."API_MANAGEMENT_APPLICATION_INFO" as "APPLICATIONINFO" key generate local "GenID1";
+	
+	"API_MANAGEMENT"."API_INFO" as "APIINFORMATION" navigates ( "OVW" as "APIOVERVIEW",
+	                                                "PEP" as "APIPROXYENDPOINT",
+	                                                "TEP" as "APITARGETENDPOINT", 
+	                                                "TS" as "APITESTSCENARIOS",
+	                                                "SAD" as "SCPAPIDETAILS",
+	                                                "BED" as "BACKENDDETAILS",
+	                                                "MWD" as "MIDDLEWAREDETAILS");
+	                                                
+													
+	"API_MANAGEMENT"."API_OVERVIEW" as "APIOVERVIEW" key generate local "GenID3";
+	"API_MANAGEMENT"."API_PROXY_END_POINT" as "APIPROXYENDPOINT" key generate local "GenID4";
+	"API_MANAGEMENT"."API_TARGET_END_POINT"  as "APITARGETENDPOINT" key generate local "GenID5";
+	"API_MANAGEMENT"."API_TEST_SCENARIOS" as "APITESTSCENARIOS" key generate local "GenID6";
+	"API_MANAGEMENT"."BACKEND_DEVELOPMENT_DETAILS" as "BACKENDDETAILS" key generate local "GenID7";
+	"API_MANAGEMENT"."MIDDLEWARE_DEVELOPMENT_DETAILS" as "MIDDLEWAREDETAILS" key generate local "GenID8";
+	"API_MANAGEMENT"."SCP_API_MANAGEMANT_DETAILS" as "SCPAPIDETAILS" key generate local "GenID9";
+
+	"API_MANAGEMENT"."API_TABLE_LIST" as "APITABLELIST" key generate local "GenID10";
+	"API_MANAGEMENT"."HTTP_METHOD_LIST" as "HTTPMETHODLIST" key generate local "GenID11";
+	"API_MANAGEMENT"."API_HOSTED_SYSTEM_LIST" as "HOSTEDSYSTEMS" key generate local "GenID12";
+	
+	
+	association "OVW" with referential constraint principal "APIINFORMATION"("API_ID") multiplicity "1" dependent "APIOVERVIEW"("API_ID") multiplicity "*";
+	association "PEP" with referential constraint principal "APIINFORMATION"("API_ID") multiplicity "1" dependent "APIPROXYENDPOINT"("API_ID") multiplicity "*";
+	association "TEP" with referential constraint principal "APIINFORMATION"("API_ID") multiplicity "1" dependent "APITARGETENDPOINT"("API_ID") multiplicity "*";
+	association "TS" with referential constraint principal "APIINFORMATION"("API_ID") multiplicity "1" dependent "APITESTSCENARIOS"("API_ID") multiplicity "*";
+	association "SAD" with referential constraint principal "APIINFORMATION"("API_ID") multiplicity "1" dependent "SCPAPIDETAILS"("API_ID") multiplicity "*";
+	association "BED" with referential constraint principal "APIINFORMATION"("API_ID") multiplicity "1" dependent "BACKENDDETAILS"("API_ID") multiplicity "*";
+	association "MWD" with referential constraint principal "APIINFORMATION"("API_ID") multiplicity "1" dependent "MIDDLEWAREDETAILS"("API_ID") multiplicity "*";
+ 	
+}

@@ -1,0 +1,34 @@
+service { 
+   // "API"."APPINFO" as "APPINFORMATION";
+	"API"."API_INFO" as "APIINFORMATION" navigates ( "OVW" as "APIOVERVIEW",
+	                                                 "PEP" as "APIPROXYENDPOINT",
+	                                                 "PRR" as "APIPROXYROUTERULES",
+	                                                 "TEP" as "APITARGETENDPOINT", 
+	                                                "TEPP" as "APITARGETENDPOINTPROPERTIES",
+	                                                "TS" as "APITESTSCENARIOS",
+	                                                "SAD" as "SCPAPIDETAILS",
+	                                                "BED" as "BACKENDDETAILS",
+	                                                "MWD" as "MIDDLEWAREDETAILS");
+	"API"."API_OVERVIEW" as "APIOVERVIEW";
+	"API"."API_PROXY_END_POINT" as "APIPROXYENDPOINT";
+	"API"."API_PROXY_ROUTE_RULES" as "APIPROXYROUTERULES" ;
+	"API"."API_TARGET_END_POINT" as "APITARGETENDPOINT";
+	"API"."API_TARGET_END_POINT_PROPERTIES" as "APITARGETENDPOINTPROPERTIES";
+	"API"."API_TEST_SCENARIOS" as "APITESTSCENARIOS";
+	"API"."SCP_API_MANAGEMANT_DETAILS" as "SCPAPIDETAILS";
+	"API"."BACKEND_DEVELOPMENT_DETAILS" as "BACKENDDETAILS" ;
+	"API"."MIDDLEWARE_DEVELOPMENT_DETAILS" as "MIDDLEWAREDETAILS" ;
+	"API"."API_TABLE_LIST" as "APITABLELIST";
+	"API"."API_HOSTED_SYSTEM_LIST" as "HOSTEDSYSTEMS";
+	
+	association "OVW" with referential constraint principal "APIINFORMATION"("API_ID") multiplicity "1" dependent "APIOVERVIEW"("API_ID") multiplicity "*";
+	association "PEP" with referential constraint principal "APIINFORMATION"("API_ID") multiplicity "1" dependent "APIPROXYENDPOINT"("API_ID") multiplicity "*";
+	association "PRR" with referential constraint principal "APIINFORMATION"("API_ID") multiplicity "1" dependent "APIPROXYROUTERULES"("API_ID") multiplicity "*";
+	association "TEP" with referential constraint principal "APIINFORMATION"("API_ID") multiplicity "1" dependent "APITARGETENDPOINT"("API_ID") multiplicity "*";
+	association "TEPP" with referential constraint principal "APIINFORMATION"("API_ID") multiplicity "1" dependent "APITARGETENDPOINTPROPERTIES"("API_ID") multiplicity "*";
+	association "TS" with referential constraint principal "APIINFORMATION"("API_ID") multiplicity "1" dependent "APITESTSCENARIOS"("API_ID") multiplicity "*";
+	association "SAD" with referential constraint principal "APIINFORMATION"("API_ID") multiplicity "1" dependent "SCPAPIDETAILS"("API_ID") multiplicity "*";
+	association "BED" with referential constraint principal "APIINFORMATION"("API_ID") multiplicity "1" dependent "BACKENDDETAILS"("API_ID") multiplicity "*";
+	association "MWD" with referential constraint principal "APIINFORMATION"("API_ID") multiplicity "1" dependent "MIDDLEWAREDETAILS"("API_ID") multiplicity "*";
+ 	
+ }
