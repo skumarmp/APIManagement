@@ -6,6 +6,7 @@ function validateVariable(variable) {
     }
 }
 
+
 function checkIfRecordAlreadyExistsNonScenario(conn, tableName, recordID) {
     try {
         var ret = {};
