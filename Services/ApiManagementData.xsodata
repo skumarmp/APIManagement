@@ -1,3 +1,4 @@
+// comment line from master 2 in apimanagemnt.xsodata
 service { 
 
 	"API_MANAGEMENT"."API_MANAGEMENT_APPLICATION_INFO" as "APPLICATIONINFO" key generate local "GenID1";
